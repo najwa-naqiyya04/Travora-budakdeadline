@@ -1,0 +1,116 @@
+/* Halaman login – diport dari desain teman, disesuaikan warna brand & responsif */
+.login-page {
+  position: relative;
+  background-image: linear-gradient(rgba(20, 38, 66, 0.35), rgba(20, 38, 66, 0.35)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 72px 16px 32px;
+}
+.login-back {
+  position: absolute; top: 20px; left: 20px;
+  display: inline-flex; align-items: center; gap: 6px;
+  color: #fff; font-size: 14px; font-weight: 600;
+  padding: 8px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18); backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+.login-back:hover { background: rgba(255, 255, 255, 0.3); }
+
+.login-container {
+  background: #fff; border-radius: 30px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+  position: relative; overflow: hidden; width: 820px; max-width: 100%; min-height: 540px;
+}
+.login-container p { font-size: 14px; line-height: 20px; letter-spacing: 0.3px; margin: 14px 0 18px; }
+.login-container span { font-size: 12px; color: #666; }
+.login-container button { cursor: pointer; font-family: inherit; }
+
+.login-container form {
+  background: #fff; display: flex; align-items: center; justify-content: center; flex-direction: column;
+  padding: 0 40px; height: 100%; gap: 2px;
+}
+.login-container h2 { font-size: 26px; font-weight: 700; margin: 6px 0 2px; color: #142642; }
+.login-container input {
+  background: #eef2f8; border: 2px solid transparent; margin: 6px 0; padding: 11px 15px;
+  font-size: 14px; border-radius: 10px; width: 100%; outline: none; color: #142642; font-family: inherit;
+}
+.login-container input:focus { border-color: #4f90f6; background: #fff; }
+.pw-field { position: relative; width: 100%; }
+.pw-field input { padding-right: 42px; }
+.pw-toggle { position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: none; border: 0; color: #6b7a90; padding: 6px; display: flex; }
+
+.login-container .primary {
+  background: #4f90f6; color: #fff; font-size: 13px; padding: 12px 48px; border: 0; border-radius: 999px;
+  font-weight: 700; letter-spacing: 0.4px; margin-top: 10px;
+}
+.login-container .primary:hover { background: #3d80e8; }
+.login-container .ghost {
+  background: transparent; color: #fff; border: 1.5px solid #fff; border-radius: 999px;
+  font-size: 13px; font-weight: 700; padding: 10px 42px;
+}
+.login-container .ghost:hover { background: rgba(255, 255, 255, 0.16); }
+.switch-link { display: none; background: none; border: 0; color: #4f90f6; font-size: 13px; font-weight: 600; margin-top: 12px; }
+.form-error { color: #d93f3f; font-size: 13px; margin: 4px 0 0; text-align: center; }
+
+.demo-box {
+  margin-top: 14px; background: #f3f8ff; border: 1.5px dashed #b9d4ff; border-radius: 12px; padding: 8px 14px;
+  display: flex; flex-direction: column; gap: 1px; text-align: center; font-size: 12px; color: #142642; width: 100%;
+}
+.demo-box span { color: #3a4a63; word-break: break-all; }
+.demo-box em { font-size: 11px; color: #4f90f6; font-style: normal; font-weight: 600; }
+.demo-box:hover { background: #eaf2ff; }
+
+/* Animasi geser */
+.form-container { position: absolute; top: 0; height: 100%; transition: all 0.6s ease-in-out; }
+.sign-in { left: 0; width: 50%; z-index: 2; }
+.sign-up { left: 0; width: 50%; opacity: 0; z-index: 1; pointer-events: none; }
+.login-container.active .sign-in { transform: translateX(100%); pointer-events: none; }
+.login-container.active .sign-up { transform: translateX(100%); opacity: 1; z-index: 5; animation: move 0.6s; pointer-events: auto; }
+@keyframes move { 0%, 49.99% { opacity: 0; z-index: 1; } 50%, 100% { opacity: 1; z-index: 5; } }
+
+.toggle-container {
+  position: absolute; top: 0; left: 50%; width: 50%; height: 100%; overflow: hidden;
+  transition: all 0.6s ease-in-out; border-radius: 150px 0 0 100px; z-index: 10;
+}
+.login-container.active .toggle-container { transform: translateX(-100%); border-radius: 0 150px 100px 0; }
+.toggle { background: #4f90f6; height: 100%; color: #fff; position: relative; left: -100%; width: 200%; transform: translateX(0); transition: all 0.6s ease-in-out; }
+.login-container.active .toggle { transform: translateX(50%); }
+.toggle-panel {
+  position: absolute; width: 50%; height: 100%; display: flex; align-items: center; justify-content: center;
+  flex-direction: column; padding: 0 28px; text-align: center; top: 0; transition: all 0.6s ease-in-out;
+}
+.toggle-panel h1 { font-size: 26px; font-weight: 700; line-height: 1.2; color: #fff; }
+.toggle-left { transform: translateX(-200%); }
+.toggle-right { right: 0; transform: translateX(0); }
+.login-container.active .toggle-left { transform: translateX(0); }
+.login-container.active .toggle-right { transform: translateX(200%); }
+
+/* Mobile: satu form per layar, ganti lewat tautan teks */
+@media (max-width: 680px) {
+  .login-page { align-items: flex-start; padding-top: 80px; }
+  .login-container { min-height: 0; border-radius: 24px; width: 100%; max-width: 440px; }
+  .toggle-container { display: none; }
+  .form-container, .login-container.active .sign-in, .login-container.active .sign-up {
+    position: static; width: 100%; transform: none; animation: none; transition: none; height: auto; opacity: 1;
+  }
+  .form-container { display: none; }
+  .sign-in { display: block; pointer-events: auto; }
+  .login-container.active .sign-in { display: none; }
+  .login-container.active .sign-up { display: block; pointer-events: auto; }
+  .login-container form { padding: 32px 24px 28px; }
+  .switch-link { display: block; }
+}
+@media (min-width: 681px) and (max-width: 860px) {
+  .login-container form { padding: 0 24px; }
+  .toggle-panel { padding: 0 16px; }
+  .toggle-panel h1 { font-size: 22px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-container, .toggle-container, .toggle, .toggle-panel { transition: none; }
+  .login-container.active .sign-up { animation: none; }
+}

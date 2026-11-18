@@ -1,0 +1,6 @@
+{
+  "name": "TRAVORA - Free Backpackers Accommodation Indonesia",
+  "description": "Platform akomodasi gratis untuk backpacker dan traveler menjelajahi destinasi indah di seluruh Indonesia dengan kenyamanan dan pertukaran kontribusi lokal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
